@@ -27,5 +27,10 @@ interface EloquentRepositoryInterface
      * @return Model
      */
     public function find($id): ?Model;
+
+
+    public function all();
+
+    public function destroy($ids);
 }
 

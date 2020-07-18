@@ -8,28 +8,65 @@
 namespace App\Services\Impl;
 
 
+use App\Repositories\CategoryRepositoryInterface;
 use App\Services\CategoryServiceInterface;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Collection;
 
+/**
+ * Class CategoryService
+ * @package App\Services\Impl
+ */
 class CategoryService implements CategoryServiceInterface
 {
+    /**
+     * @var CategoryRepositoryInterface
+     */
+    protected $categoryRepository;
 
-    public function getAllCategories()
+
+    /**
+     * CategoryService constructor.
+     * @param CategoryRepositoryInterface $categoryRepository
+     */
+    public function __construct(CategoryRepositoryInterface $categoryRepository)
     {
-        // TODO: Implement getAllCategories() method.
+        $this->categoryRepository = $categoryRepository;
     }
 
+
+    /**
+     * @return Collection
+     */
+    public function getAllCategories() : Collection
+    {
+        return $this->categoryRepository->all();
+    }
+
+    /**
+     * @param array $category
+     * @return Model
+     */
     public function addNewCategory(array $category)
     {
-        // TODO: Implement addNewCategory() method.
+        return $this->categoryRepository->create($category);
     }
 
-    public function getCategoryById($id)
+    /**
+     * @param $id
+     * @return Model
+     */
+    public function getCategoryById($id) : ?Model
     {
-        // TODO: Implement getCategoryById() method.
+        return $this->categoryRepository->find($id);
     }
 
-    public function deleteCategoryById($id)
+    /**
+     * @param $id
+     * @return int
+     */
+    public function deleteCategoryById($id) : int
     {
-        // TODO: Implement deleteCategoryById() method.
+        return $this->categoryRepository->destroy($id);
     }
 }
