@@ -19,7 +19,10 @@ class CreateProductsTable extends Migration
             $table->string('description', 255)->nullable();
             $table->decimal('price', 8, 2, true)->nullable(false);
             $table->string('image', 255)->nullable();
-            $table->timestamps();
+            $table->foreignId('category_id')
+                ->constrained('categories')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->timestamp("created_at")->default(DB::raw("CURRENT_TIMESTAMP"));
+            $table->timestamp("updated_at")->default(DB::raw("CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"));
         });
     }
 
