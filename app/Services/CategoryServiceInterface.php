@@ -11,4 +11,12 @@ namespace App\Services;
 interface CategoryServiceInterface
 {
 
+    public function getAllCategories();
+
+    public function addNewCategory(array $category);
+
+    public function getCategoryById($id);
+
+    public function deleteCategoryById($id);
+
 }
