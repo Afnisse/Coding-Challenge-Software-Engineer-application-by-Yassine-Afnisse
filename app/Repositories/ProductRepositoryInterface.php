@@ -6,14 +6,20 @@
  * Time: 17:54
  */
 
-namespace App\Repository;
+namespace App\Repositories;
 
 
 use App\Product;
 use Illuminate\Support\Collection;
 
-interface ProductRepositoryInterface
+interface ProductRepositoryInterface extends EloquentRepositoryInterface
 {
     public function all(): Collection;
+
+    public function store(array $product);
+
+    public function destroy($id);
+
+    public function allSortBy($sortField, string $sortType);
 
 }

@@ -6,7 +6,7 @@
  * Time: 17:58
  */
 
-namespace App\Repositories\Eloquent;
+namespace App\Repositories\Impl;
 
 
 use App\Repositories\EloquentRepositoryInterface;

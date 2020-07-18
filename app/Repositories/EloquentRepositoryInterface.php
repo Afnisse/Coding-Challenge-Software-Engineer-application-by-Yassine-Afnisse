@@ -5,7 +5,7 @@
  * Date: 7/17/20
  */
 
-namespace App\Repository;
+namespace App\Repositories;
 
 
 use Illuminate\Database\Eloquent\Model;

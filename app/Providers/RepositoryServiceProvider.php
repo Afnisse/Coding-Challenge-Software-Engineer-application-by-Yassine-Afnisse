@@ -2,12 +2,12 @@
 
 namespace App\Providers;
 
-use App\Repository\CategoryRepositoryInterface;
-use App\Repository\Eloquent\BaseRepository;
-use App\Repository\Eloquent\CategoryRepository;
-use App\Repository\Eloquent\ProductRepository;
-use App\Repository\EloquentRepositoryInterface;
-use App\Repository\ProductRepositoryInterface;
+use App\Repositories\Impl\BaseRepository;
+use App\Repositories\Impl\CategoryRepository;
+use App\Repositories\Impl\ProductRepository;
+use App\Repositories\CategoryRepositoryInterface;
+use App\Repositories\EloquentRepositoryInterface;
+use App\Repositories\ProductRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
 
 class RepositoryServiceProvider extends ServiceProvider

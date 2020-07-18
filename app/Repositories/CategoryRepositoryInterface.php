@@ -6,10 +6,10 @@
  * Time: 17:55
  */
 
-namespace App\Repository;
+namespace App\Repositories;
 
 
-interface CategoryRepositoryInterface
+interface CategoryRepositoryInterface extends EloquentRepositoryInterface
 {
 
 }

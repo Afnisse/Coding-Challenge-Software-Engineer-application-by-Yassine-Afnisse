@@ -6,10 +6,12 @@
  * Time: 17:55
  */
 
-namespace App\Repositories\Eloquent;
+namespace App\Repositories\Impl;
 
 
-class CategoryRepository
+use App\Repositories\CategoryRepositoryInterface;
+
+class CategoryRepository extends BaseRepository implements CategoryRepositoryInterface
 {
 
 }

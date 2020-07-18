@@ -6,7 +6,7 @@
  * Time: 17:58
  */
 
-namespace App\Repositories\Eloquent;
+namespace App\Repositories\Impl;
 
 
 use App\Product;
@@ -32,5 +32,19 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
     public function all(): Collection
     {
         return $this->model->all();
+    }
+
+    /**
+     * @param array $product
+     * @return mixed
+     */
+    public function store(array $product)
+    {
+        return $this->model->create($product);
+    }
+
+    public function allSortBy($sortField, string $sortType)
+    {
+         return $this->model::orderBy($sortField, $sortType)->get();
     }
 }
