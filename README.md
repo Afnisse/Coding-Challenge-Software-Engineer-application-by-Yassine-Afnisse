@@ -1,6 +1,23 @@
 <h1 align="center">Software Engineer - Coding challenge</h1>
 
 
+
+## Table of Contents
+
+- [About](#about)
+- [Used technologies](#used-technologies)
+- [Deploying](#deploying)
+- [Usage](#usage)
+  - [Command Line](#command-line)
+    - [Create and Delete Categories](#create-and-delete-categories)
+    - [Create and Delete Products](#create-and-delete-products)
+- [Web Interface](#web-interface)
+    - [Show Product List](#show-product-list)
+        - [Sorting and filtering product list](#Sorting-and-filtering-product-list)
+    - [Create a new product](#Create-a-new-product)
+- [License](#license)
+
+
 ## About
 
 This application is a demo app for the coding challenge provided by Nextmedia to evaluate the coding skills of developers and software engineers.
