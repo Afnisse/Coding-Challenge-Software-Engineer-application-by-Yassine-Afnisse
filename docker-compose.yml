@@ -1,0 +1,57 @@
+version: "3.3"
+
+services:
+  app:
+    image: "laravel-php:7.4-apache"
+    build:
+      context: .
+      args:
+        USER_ID: 1000
+    container_name: yassine-afnisse-tech-challenge
+    restart: always
+
+    environment:
+      - DB_HOST=172.13.37.20
+      - DB_PORT=3306
+      - DB_DATABASE=nextmedia
+      - DB_USERNAME=root
+      - DB_PASSWORD=XpmdQ355ae3pyiFU
+    depends_on:
+      - db
+    expose:
+      - "80"
+    networks:
+      net:
+        ipv4_address: 172.13.37.10
+    volumes:
+      - webdata:/var/www/
+  db:
+    image: "mysql:8.0.20"
+    container_name: yassine-afnisse-tech-challenge-mysql
+    restart: always
+    expose:
+      - "3306"
+    networks:
+      net:
+        ipv4_address: 172.13.37.20
+    environment:
+      MYSQL_ROOT_PASSWORD: XpmdQ355ae3pyiFU
+      MYSQL_DATABASE: nextmedia
+    volumes:
+      - db-data:/var/lib/mysql
+      - db-config:/etc/mysql/conf.d
+
+networks:
+  net:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.13.37.0/24
+
+
+volumes:
+  webdata:
+  db-data:
+  db-config:
+
