@@ -118,7 +118,7 @@ class CreateProduct extends Command
 
     public function uploadImage($path): string
     {
-        $db_path = '/img/'.basename(trim($path));
+        $db_path = '/images/'.basename(trim($path));
         $public_path = 'public'.$db_path;
 
         try {

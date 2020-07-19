@@ -45,6 +45,17 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
 
     public function allSortBy($sortField, string $sortType)
     {
-         return $this->model::orderBy($sortField, $sortType)->get();
+        //dd($this->model->orderBy($sortField, $sortType)->toSql());
+         return $this->model->orderBy($sortField, $sortType)->get();
+    }
+
+    public function allFilteredBy(string $category)
+    {
+        return $this->model->category()->where('name', 'LIKE', "%{$category}%")->get();
+    }
+
+    public function allFilteredByAndSortBy(string $category, string $sortField, string $sortType)
+    {
+        $this->model->orderBy($sortField, $sortType)->category()->where('name', $category)->get();
     }
 }

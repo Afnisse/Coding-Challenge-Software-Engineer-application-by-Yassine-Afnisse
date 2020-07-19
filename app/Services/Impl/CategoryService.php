@@ -69,4 +69,9 @@ class CategoryService implements CategoryServiceInterface
     {
         return $this->categoryRepository->destroy($id);
     }
+
+    public function getCategoriesDistinct()
+    {
+        return $this->categoryRepository->allNamesDistinct();
+    }
 }

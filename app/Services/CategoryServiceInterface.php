@@ -19,4 +19,6 @@ interface CategoryServiceInterface
 
     public function deleteCategoryById($id);
 
+    public function getCategoriesDistinct();
+
 }

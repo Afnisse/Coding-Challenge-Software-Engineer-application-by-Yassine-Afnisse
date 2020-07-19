@@ -8,20 +8,24 @@
 namespace App\Services\Impl;
 
 
+use App\Repositories\CategoryRepositoryInterface;
 use App\Repositories\ProductRepositoryInterface;
 use App\Services\ProductServiceInterface;
 
 class ProductService implements ProductServiceInterface
 {
     protected $productRepository;
+    protected $categoryRepository;
 
     /**
      * ProductService constructor.
-     * @param $productRepository
+     * @param ProductRepositoryInterface $productRepository
+     * @param CategoryRepositoryInterface $categoryRepository
      */
-    public function __construct(ProductRepositoryInterface $productRepository)
+    public function __construct(ProductRepositoryInterface $productRepository, CategoryRepositoryInterface $categoryRepository)
     {
         $this->productRepository = $productRepository;
+        $this->categoryRepository = $categoryRepository;
     }
 
 
@@ -52,7 +56,25 @@ class ProductService implements ProductServiceInterface
 
     public function getAllProductsFilteredByCategory($category)
     {
-        // TODO: Implement getAllProductsFilteredByCategory() method.
+        return $this->categoryRepository->allFilteredBy($category);
     }
 
+    public function getAllProductsFilteredByCategoryAndSortedBy($category, $sortField, $sortType = 'ASC')
+    {
+
+        //dd([$category, $sortField, $sortType]);
+        if ($category === null && ($sortField === null || $sortType === null)) {
+            return $this->getAllProducts();
+        }
+        if ($category === null) {
+            return $this->getAllProductsSortedBy($sortField, $sortType);
+        }
+
+        if ($sortField === null || $sortType === null) {
+            //dd($this->getAllProductsFilteredByCategory($category));
+            return $this->getAllProductsFilteredByCategory($category);
+        }
+
+        return $this->categoryRepository->allFilteredByCategoryNameAndSortedBy($category, $sortField, $sortType);
+    }
 }

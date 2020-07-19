@@ -22,4 +22,6 @@ interface ProductServiceInterface
     public function getAllProductsSortedBy($sortField, $sortType = 'ASC');
 
     public function getAllProductsFilteredByCategory($category);
+
+    public function getAllProductsFilteredByCategoryAndSortedBy($category, $sortField, $sortType = 'ASC');
 }

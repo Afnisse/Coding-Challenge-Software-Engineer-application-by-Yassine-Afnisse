@@ -12,4 +12,10 @@ namespace App\Repositories;
 interface CategoryRepositoryInterface extends EloquentRepositoryInterface
 {
 
+    public function allFilteredBy(string $category);
+
+    public function allNamesDistinct();
+
+    public function allFilteredByCategoryNameAndSortedBy($category, $sortField, string $sortType);
+
 }

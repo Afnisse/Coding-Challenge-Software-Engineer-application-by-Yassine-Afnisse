@@ -25,4 +25,19 @@ class CategoryRepository extends BaseRepository implements CategoryRepositoryInt
         parent::__construct($model);
     }
 
+    public function allFilteredBy(string $category)
+    {
+        //dd($this->model->with('products')->where('name', '=', $category)->first()->products);
+        return $this->model->where('name', '=', $category)->first()->products;
+    }
+
+    public function allNamesDistinct()
+    {
+        return $this->model->select('id', 'name')->distinct('name')->get();
+    }
+
+    public function allFilteredByCategoryNameAndSortedBy($category, $sortField, string $sortType)
+    {
+        return $this->model->where('name', '=', $category)->first()->products()->orderBy($sortField, $sortType)->get();
+    }
 }

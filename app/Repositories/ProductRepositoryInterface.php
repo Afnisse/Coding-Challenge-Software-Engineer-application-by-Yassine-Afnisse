@@ -20,6 +20,10 @@ interface ProductRepositoryInterface extends EloquentRepositoryInterface
 
     public function destroy($id);
 
-    public function allSortBy($sortField, string $sortType);
+    public function allSortBy(string $sortField, string $sortType);
+
+    public function allFilteredBy(string $category);
+
+    public function allFilteredByAndSortBy(string $category, string $sortField, string $sortType);
 
 }
