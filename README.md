@@ -5,6 +5,9 @@
 
 This application is a demo app for the coding challenge provided by Nextmedia to evaluate the coding skills of developers and software engineers.
 
+## Used technologies
+- Laravel 7 / VueJs 2.5
+- PHP 7.4 / MySQL 8
 
 ## Deploying
 
@@ -62,3 +65,7 @@ so to access it in the browser open.
 ### Create a new product
 @ To create a new product click on NEW ITEM button in the top left of the table, a modal will pop up to fill the form and submitted
  
+
+
+## Questions?
+If you have any questions, email me on [yassine@afnisse.com](mailto:yassine@afnisse.com) I will be happy to answer your questions or clarify the ambiguity.  
