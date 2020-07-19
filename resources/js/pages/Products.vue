@@ -8,6 +8,7 @@
             :items="categoriesList"
             label="Categories"
             outlined
+            clearable
             item-value="name"
             item-text="name"
             single-line

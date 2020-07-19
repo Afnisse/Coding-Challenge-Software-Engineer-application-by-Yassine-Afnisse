@@ -2133,6 +2133,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Products",
   data: function data() {
@@ -38723,6 +38724,7 @@ var render = function() {
               items: _vm.categoriesList,
               label: "Categories",
               outlined: "",
+              clearable: "",
               "item-value": "name",
               "item-text": "name",
               "single-line": ""
